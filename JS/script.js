@@ -45,6 +45,9 @@ function game() {
         failedGuesses.push(inputLetter);
         player.lives--;
       }
+
+      printRoundStatus(player, roundWord, correctGuesses, failedGuesses);
+
     } while (player.lives > 0 && !wonRound);
 
     if (wonRound) {
@@ -110,6 +113,22 @@ function readPlayerInput(correctGuesses, failedGuesses) {
     break;
   }
   return inputLetter;
+}
+
+function printRoundStatus(player, roundWord, correctGuesses, failedGuesses) {
+  let wordStatus = roundWord.map((letter) => {
+    if (correctGuesses.includes(letter)) {
+      return letter;
+    } else {
+      return "_";
+    }
+  });
+
+  alert(
+    `${player.name} te quedan ${player.lives} vidas\n\n${wordStatus.join(
+      " "
+    )}\nErrores: ${failedGuesses}`
+  );
 }
 
 game();
