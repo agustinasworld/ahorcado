@@ -25,6 +25,30 @@ function game() {
     words.splice(wordIndex, 1); // remove from list to avoid word repetition
 
     console.log(`Jugando con palabra: ${roundWord}`); // remove
+
+    // round starts
+    let wonRound = false;
+    let correctGuesses = [];
+    let failedGuesses = [];
+
+    do {
+      let inputLetter = (inputLetter = prompt("Introduce una letra")); // agregar validacion 1 sola letra - ya la dijiste
+
+      let hit = roundWord.includes(inputLetter);
+
+      if (hit) {
+        alert(
+          `¡Bien ahí, ${player.name}! La letra ${inputLetter} está en la palabra`
+        );
+        correctGuesses.push(inputLetter);
+        wonRound = roundWord.every((letter) => correctGuesses.includes(letter));
+      } else {
+        alert(`Ups! La letra ${inputLetter} NO está en la palabra`);
+        failedGuesses.push(inputLetter);
+        player.lives--;
+      }
+    } while (player.lives > 0 && !wonRound);
+
     keepPlaying = false;
   } while (keepPlaying);
 
