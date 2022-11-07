@@ -32,7 +32,7 @@ function game() {
     let failedGuesses = [];
 
     do {
-      let inputLetter = (inputLetter = prompt("Introduce una letra")); // agregar validacion 1 sola letra - ya la dijiste
+      let inputLetter = readPlayerInput(correctGuesses, failedGuesses);
 
       let hit = roundWord.includes(inputLetter);
 
@@ -65,6 +65,44 @@ function showFinalResult(player) {
       `Felicitaciones ${player.name}.\nGanaste todas las rondas (${player.roundsWon}). Y te sobraron ${player.lives} vidas`
     );
   }
+}
+
+function readPlayerInput(correctGuesses, failedGuesses) {
+  let inputLetter = "";
+  while (true) {
+    inputLetter = prompt("Introduce una letra"); // agregar validacion 1 sola letra - ya la dijiste
+    if (inputLetter.length == 0) {
+      alert("Introduce al menos una letra");
+      continue;
+    }
+    if (inputLetter.length >= 2) {
+      alert("Introduce solo 1 (una) letra");
+      continue;
+    }
+
+    inputLetter = inputLetter.toUpperCase();
+
+    const charCode = inputLetter.charCodeAt(0);
+    // "A".charCodeAt(0) = 65
+    // "B".charCodeAt(0) = 66
+    // "Z".charCodeAt(0) = 90
+    // Valores válidos entre 65 y 90
+    if (charCode < 65 || charCode > 90) {
+      alert("Introduce un caracter válido (letra)");
+      continue;
+    }
+
+    if (
+      correctGuesses.includes(inputLetter) ||
+      failedGuesses.includes(inputLetter)
+    ) {
+      alert("Esta letra ya la introduciste anteriormente. Intenta otra");
+      continue;
+    }
+
+    break;
+  }
+  return inputLetter;
 }
 
 game();
