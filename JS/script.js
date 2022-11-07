@@ -24,8 +24,6 @@ function game() {
     let roundWord = words[wordIndex];
     words.splice(wordIndex, 1); // remove from list to avoid word repetition
 
-    console.log(`Jugando con palabra: ${roundWord}`); // remove
-
     // round starts
     let wonRound = false;
     let correctGuesses = [];
@@ -49,7 +47,16 @@ function game() {
       }
     } while (player.lives > 0 && !wonRound);
 
-    keepPlaying = false;
+    if (wonRound) {
+      alert(`Vamos! Adivinaste la palabra ${roundWord.join("")}`);
+      player.roundsWon++;
+    }
+
+    if (words.length == 0 || player.lives == 0) {
+      keepPlaying = false;
+    } else {
+      keepPlaying = confirm("¿Queres jugar otra ronda?");
+    }
   } while (keepPlaying);
 
   showFinalResult(player);
@@ -70,7 +77,7 @@ function showFinalResult(player) {
 function readPlayerInput(correctGuesses, failedGuesses) {
   let inputLetter = "";
   while (true) {
-    inputLetter = prompt("Introduce una letra"); // agregar validacion 1 sola letra - ya la dijiste
+    inputLetter = prompt("Introduce una letra");
     if (inputLetter.length == 0) {
       alert("Introduce al menos una letra");
       continue;
