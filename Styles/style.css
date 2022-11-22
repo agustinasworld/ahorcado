@@ -1,7 +1,74 @@
-body {
-    background-image: url(../images/happyhaloween.webp);
-    background-size: cover; 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-h2 {
-    color: white;
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+.containercard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(../images/fondoinicio.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.card-header {
+  min-height: 10vh;
+}
+.card-body,
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.containercardLose {
+  background-image: url(../images/zombieland.jpg);
+}
+
+/* Game */
+.game {
+  background-image: url(../images/background1.png);
+}
+
+.wrapper {
+  display: grid;
+  min-height: 100vh;
+  min-width: 100vh;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 50% 25% 25%;
+  grid-template-areas: "one two " "one three" "one four ";
+}
+.one {
+  background-image: url(../images/stick_figure_0_errors.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  grid-area: one;
+}
+
+.two {
+  background-color: white;
+  grid-area: two;
+  font-size: 70px;
+  color: grey;
+  align-items: center;
+}
+
+.three {
+  background-color: blueviolet;
+  grid-area: three;
+}
+
+.four {
+  background-color: palevioletred;
+  grid-area: four;
 }
