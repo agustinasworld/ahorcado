@@ -18,9 +18,12 @@
     <div class="wrapper">
       <div class="container one" id="hangmanImage"></div>
       <div class="container two"><p id="wordDisplay"></p></div>
-      <div class="container three"><p id="incorrectDisplay"></p></div>
+      <div class="container three">
+        <h4>Mistakes</h4>
+        <p id="incorrectDisplay"></p>
+      </div>
       <div class="container four">
-        <div class="col-auto py-3">
+        <div class="col-auto">
           <input
             class="form-control"
             id="enterALetter"
@@ -28,7 +31,7 @@
           />
         </div>
         <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3" id="btnSubmit">
+          <button type="submit" class="btn btn-dark mb-3" id="btnSubmit">
             Submit
           </button>
         </div>
