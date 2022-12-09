@@ -1,24 +1,14 @@
 const nicknameDisplay = document.getElementById("nicknameDisplay");
 const btnNext = document.getElementById("btnNext");
-
 btnNext.addEventListener("click", saveName);
 
 // on page load, check if player is saved
-const savedPlayer = JSON.parse(localStorage.getItem("currentPlayer"));
-if (savedPlayer != null) {
-  nicknameDisplay.value = savedPlayer.nickname;
+const savedPlayerNickname = sessionStorage.getItem("current_player_nickname");
+if (savedPlayerNickname != null && savedPlayerNickname != undefined) {
+  nicknameDisplay.value = savedPlayerNickname;
 }
 
 function saveName() {
-  const nickname = nicknameDisplay.value;
-
-  if (savedPlayer == null || nickname != savedPlayer.nickname) {
-    const currentPlayer = {
-      nickname: nickname,
-      correctGuesses: [],
-      incorrectGuesses: [],
-      randomWord: "",
-    };
-    localStorage.setItem("currentPlayer", JSON.stringify(currentPlayer));
-  }
+  console.log("nicknameDisplay.value", nicknameDisplay.value);
+  sessionStorage.setItem("current_player_nickname", nicknameDisplay.value);
 }

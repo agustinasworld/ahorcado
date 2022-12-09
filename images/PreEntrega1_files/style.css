@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+.containercard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(../images/fondoinicio.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.card-header {
+  min-height: 10vh;
+}
+.card-body,
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.containercardLose {
+  background-image: url(../images/zombieland.jpg);
+}
+
+/* Game */
+
+.wrapper {
+  display: grid;
+  min-height: 100vh;
+  min-width: 100vh;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "one two " "one three" "one four ";
+  background-image: url(../images/fondo.png);
+  background-size: center;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.one {
+  background-image: url(../images/stick_figure_0_errors.png);
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+  font-size: 60px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.three {
+  grid-area: three;
+  font-size: 30px;
+}
+
+.four {
+  grid-area: four;
+  display: flex;
+}
